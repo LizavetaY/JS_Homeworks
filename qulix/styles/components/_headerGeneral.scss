@@ -1,0 +1,26 @@
+.header {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $headerMainColor;
+
+    .svgImg {
+        opacity: .4;
+    }
+}
+
+@media (max-width: 750px) {
+    .header {
+        font-size: 25px;
+
+        .svgImg {
+            opacity: 1;
+        }
+    }
+}

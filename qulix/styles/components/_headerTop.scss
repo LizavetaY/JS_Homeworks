@@ -1,0 +1,170 @@
+.headerTop {
+    background-color: rgb(46, 50, 62);
+    
+    .content {
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .headerTopBlock {
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
+    .headerTopLeft {
+        width: 20%;
+        justify-content: flex-start;
+        padding-left: 20px;
+
+        img {
+            width: 35px;
+        }
+    }
+    
+    .logoPhone {
+        display: none;
+    }
+
+    .headerTopRight {
+        width: 80%;
+        justify-content: flex-end;
+    }
+
+    .headerLink {
+        position: relative;
+        z-index: 1;
+        color: $headerMainColor;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        padding: 0 20px;
+        border-top: 5px solid transparent;
+
+        .jpegImg {
+            width: 30px;
+            border-radius: 5px;
+            margin-left: 10px;
+        }
+    }
+
+    .headerLink::before {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: 5;
+        top: -5px;
+        left: 0;
+        clear: both;
+        width: 0;
+        height: 5px;
+        border-radius: 1px;
+        background-color: $headerMainColor-hover;
+        transition: width .3s ease-in-out;
+    }
+
+    .headerLink:nth-child(1) {
+        .svgImg {
+            width: 10px;
+            margin-left: 10px;
+        }
+    }
+
+    .headerLink:nth-child(n+2) {
+        .svgImg {
+            width: 18px;
+        }
+    }
+
+    // HEADER HOVER
+    .headerLink:hover {
+        color: $headerMainColor-hover;
+
+        &::before {
+            width: 100%;
+        }
+
+        .svgImg {
+            opacity: 1;
+        }
+
+        .arrowDownIcon {
+            animation-name: dropArrowDown;
+            animation-duration: .6s;
+        }
+
+        .bellIcon {
+            animation-name: swingBell;
+            animation-duration: .6s;
+        }
+
+        .mailIcon {
+            animation-name: roundMail;
+            animation-duration: .6s;
+        }
+
+        .searchIcon {
+            animation-name: scaleSearch;
+            animation-duration: .6s;
+        }
+    }
+}
+
+
+@media (max-width: 750px) {
+    .headerTop {
+        .content {
+            height: 80px;
+        }
+
+        .headerTopLeft {
+            margin-left: 70px;
+
+            .logoMain {
+                display: none;
+            }
+
+            .logoPhone {
+                display: block;
+                width: 50px;
+            }
+        }
+        
+        .headerLink:nth-child(1) {
+            .svgImg {
+                width: 20px;
+                margin-left: 10px;
+            }
+        }
+
+        .headerLink:nth-child(n+2) {
+            .svgImg {
+                width: 25px;
+            }
+        }
+
+        .headerLink span:first-child {
+            color: rgb(227, 232, 241);
+        }
+
+        .headerLink .jpegImg {
+            width: 50px;
+        }
+
+        .headerLink .userName {
+            display: none;
+        }
+    }
+}
+
+@media (max-width: 660px) {
+    .headerTop {
+        .headerLinkBell,
+        .headerLinkBellMail {
+            display: none;
+        }
+    }
+}

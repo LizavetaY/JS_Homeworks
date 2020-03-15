@@ -1,0 +1,18 @@
+@import 'helpers/reset';
+
+@import 'helpers/vars';
+@import 'helpers/animations';
+@import 'helpers/navigation';
+@import 'helpers/scaffolding';
+
+
+// HEADER
+@import 'components/headerGeneral';
+@import 'components/headerTop';
+@import 'components/burgerMenu';
+@import 'components/headerBottom';
+
+// MAIN
+@import 'components/mainGeneral';
+@import 'components/mainLeft';
+@import 'components/mainRight';

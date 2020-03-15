@@ -1,0 +1,126 @@
+.burgerMenu {
+    display: none;
+
+    .burgerMenuButton {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        z-index: 9;
+        width: 60px;
+        height: 60px;
+        border: none;
+        background-color: rgb(46, 50, 62);
+    }
+    
+    .burgerMenuLines,
+    .burgerMenuLines::after,
+    .burgerMenuLines::before {
+        position: absolute;
+        width: 35px;
+        height: 4px;
+        background-color: rgb(255, 255, 255);
+    }
+    
+    .burgerMenuLines {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .burgerMenuLines::after {
+        content: '';
+        clear: both;
+        top: -12px;
+        transform: translateX(-50%);
+    }
+    
+    .burgerMenuLines::before {
+        content: '';
+        clear: both;
+        top: 12px;
+        transform: translateX(-50%);
+    }
+    
+    .burgerMenuButton:hover {
+        .burgerMenuLines { 
+            opacity: .6;
+        }
+    }
+    
+    .burgerMenuNav {
+        position: fixed;
+        top: 80px;
+        left: -100%;
+        z-index: 8;
+        padding-top: 10px;
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 25px;
+        width: 250px;
+        height: 280px;
+        background-color: rgb(46, 50, 62);
+        overflow-y: auto;
+    
+        li {
+            width: 100%;
+        }
+    }
+    
+    .burgerMenuNav li:nth-child(n+2) {
+        border-top: 1px solid rgb(153, 161, 179);
+    }
+    
+    .burgerMenuLink {
+        color: $headerSecondColor;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        padding: 5px 20px;
+    }
+    
+    .burgerMenuLink:hover {
+        opacity: .6;
+    }
+    
+    .burgerMenuOverlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 6;
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
+// BURGER-MENU - ACTIVE
+.burgerMenu_active {
+    .burgerMenuLines {
+        background-color: transparent;
+    }
+
+    .burgerMenuLines::before {
+        top: 0;
+        transform: translateX(-50%) rotate(45deg);
+    }
+
+    .burgerMenuLines::after {
+        top: 0;
+        transform: translateX(-50%) rotate(-45deg);
+    }
+
+    .burgerMenuNav {
+        left: 5px;
+    }
+
+    .burgerMenuOverlay {
+        display: block;
+    }
+}
+
+@media (max-width: 750px) {
+    .burgerMenu {
+        display: block;
+    }
+}
