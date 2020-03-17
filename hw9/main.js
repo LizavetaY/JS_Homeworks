@@ -2,6 +2,8 @@ function Animal(name) {
     var foodAmount = 50;
 
     this.name = name;
+    
+    var self = this;
 
     var self = this;
 
