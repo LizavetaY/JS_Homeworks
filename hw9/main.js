@@ -5,8 +5,6 @@ function Animal(name) {
     
     var self = this;
 
-    var self = this;
-
     this.feed = function () {
         console.log('Насыпаем в миску ' + self.dailyNorm() + ' корма');
     }
