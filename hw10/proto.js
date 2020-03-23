@@ -1,6 +1,6 @@
 console.log('\n ***TASK 1: proto*** \n ');
 function Animal(name) {
-    this._name = name;
+    this.name = name;
     this._foodAmount = 50;
 }
 
@@ -8,12 +8,12 @@ Animal.prototype.feed = function () {
     console.log('Насыпаем в миску ' + this.dailyNorm() + ' корма');
 }
 
-Animal.prototype.formatFoodAmount = function () {
+Animal.prototype._formatFoodAmount = function () {
     return this._foodAmount + ' гр.';
 }
 
 Animal.prototype.dailyNorm = function (amount) {
-    if (!arguments.length) return this.formatFoodAmount();
+    if (!arguments.length) return this._formatFoodAmount();
 
     if (amount < 50 || amount > 500) {
         throw new Error('Неверный объем');
@@ -23,21 +23,17 @@ Animal.prototype.dailyNorm = function (amount) {
 }
 
 function Cat(name) {
-    this._name = name;
+    this.name = name;
 }
 
 Cat.prototype = Object.create(Animal.prototype);
 Cat.prototype.constructor = Cat;
 
-Cat.prototype._animalFeed = Animal.prototype.feed;
-
 Cat.prototype.feed = function () {
-    this._animalFeed();
+    Animal.prototype.feed.apply(this, arguments);
     console.log('Кот доволен ˆ_ˆ');
     return this;
 }
-
-console.log(Cat.prototype.feeds);
 
 Cat.prototype.stroke = function () {
     console.log('Гладим кота.');
