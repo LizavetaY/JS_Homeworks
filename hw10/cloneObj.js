@@ -1,10 +1,6 @@
 console.log('\n ***TASK 2: clone the obj*** \n ');
 function deepClone(obj) {
-    var objCopy = {};
-
-    if (Array.isArray(obj)) {
-        objCopy = [];
-    }
+    var objCopy = (!Array.isArray(obj)) ? {} : [];
 
     for (var key in obj) {
         if (typeof (obj[key]) !== 'object' || obj[key] === null) {
