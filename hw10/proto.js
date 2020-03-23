@@ -23,6 +23,7 @@ Animal.prototype.dailyNorm = function (amount) {
 }
 
 function Cat(name) {
+    Animal.apply(this, arguments);
     this.name = name;
 }
 
