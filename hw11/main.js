@@ -5,33 +5,51 @@ console.log(arr);
 // TASK 1
 console.log(' \nTASK 1\nfilterNumbersArr()\n  ');
 
-var newArr = arr.filter(function (el) {
-    return el > 0;
-});
+function filterNumbersArr(numbers) {
+    var array = numbers;
 
-console.log(newArr);
+    if (!Array.isArray(array)) {
+        return 'It\'s not an Array!';
+    }
+
+    var arrayPositive = array.filter(function (el) {
+        return el > 0;
+    });
+
+    return arrayPositive;
+}
+
+console.log(filterNumbersArr(arr));
 
 
 // TASK 2
 console.log(' \nTASK 2\ngetPositiveNumber()\n ');
 
-function getPositiveNumber(number) {
-    return number > 0;
+function getPositiveNumber(numbers) {
+    var array = numbers;
+
+    if (!Array.isArray(array)) {
+        return 'It\'s not an Array!';
+    }
+
+    var numberPositive = array.find(function (el) {
+        return el > 0;
+    });
+
+    return numberPositive;
 }
 
-console.log(arr.find(getPositiveNumber));
+console.log(getPositiveNumber(arr));
 
 
 // TASK 3
 console.log(' \nTASK 3\nisPalindrome()\n ');
 
 function isPalindrome(word) {
-    var array = word.toLowerCase().split('');
-    var arrCopy = word.toLowerCase().split('').reverse();
+    var word1 = word.toLowerCase();
+    var word2 = word.toLowerCase().split('').reverse().join('');
 
-    for (var i = 0; i < array.length; i++) {
-        return array[i] == arrCopy[i] ? true : false;
-    }
+    return word1 === word2 ? true : false;
 }
 
 console.log(isPalindrome('шалаШ'));
@@ -42,16 +60,14 @@ console.log(isPalindrome('Привет'));
 console.log(' \nTASK 4\nareAnagrams()\n ');
 
 function areAnagrams(arg1, arg2) {
-    var word1 = arg1.split('').sort();
-    var word2 = arg2.split('').sort();
+    var word1 = arg1.toLowerCase().split('').sort().join('');
+    var word2 = arg2.toLowerCase().split('').sort().join('');
 
     if (word1.length != word2.length) {
         return false;
     }
 
-    for (var i = 0; i < word1.length; i++) {
-        return word1[i] == word2[i] ? true : false;
-    }
+    return word1 === word2 ? true : false;
 }
 
 console.log(areAnagrams('кот', 'отк'));
