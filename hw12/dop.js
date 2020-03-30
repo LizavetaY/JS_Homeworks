@@ -31,7 +31,7 @@ function countWords(par) {
             biggerKey = objKeys[key];
         }
 
-        if (biggerKey <= 2) {
+        if (biggerKey <= 1) {
             biggerKeyName = '- (нет таких слов)';
             biggerKey = 0;
         }
