@@ -7,8 +7,8 @@ var conteiner = document.getElementById('conteinerJS');
 var paragraphNew1 = document.createElement('p');
 var paragraphNew2 = document.createElement('p');
 
-paragraphNew1.innerHTML = 'You can visit the <a href="https://www.google.com">Link1</a> or <a href="https://www.google.com/">Link2</a>';
-paragraphNew2.innerHTML = 'You can visit the <a href="https://www.google.com">Link3</a> or <a href="https://www.google.com/">Link4</a>';
+paragraphNew1.innerHTML = 'You can visit the <a href="https://www.google.com">Link1</a> or <a href="https://www.google.com">Link2</a>';
+paragraphNew2.innerHTML = 'You can visit the <a href="https://www.google.com">Link3</a> or <a href="https://www.google.com">Link4</a>';
 
 conteiner.appendChild(paragraphNew1);
 conteiner.appendChild(paragraphNew2);
