@@ -19,7 +19,7 @@ inputX.addEventListener('keyup', function () {
     val1 = inputX.value;
     editVal1 = val1.trim();
 
-    localStorage.val1 = val1;
+    localStorage.val1 = editVal1;
 
     if (!editVal1) {
         button.setAttribute('disabled', '');
@@ -39,7 +39,7 @@ inputY.addEventListener('keyup', function () {
     val2 = inputY.value;
     editVal2 = val2.trim();
 
-    localStorage.val2 = val2;
+    localStorage.val2 = editVal2;
 
     if (!editVal2) {
         button.setAttribute('disabled', '');
