@@ -28,23 +28,24 @@ function changeLinks() {
 
 // TASK 14 + 15
 // Change Links behaviour
-var childsLinks2 = conteiner.lastElementChild.querySelectorAll('a');
+var childsLinks2 = conteiner.lastElementChild;
 
 localStorage.clear();
 
-childsLinks2.forEach(function (el) {
-    el.onclick = function (event) {
-        var obj = {};
+childsLinks2.onclick = function (event) {
+    var target = event.target;
+    var obj = {};
 
-        event.preventDefault();
+    if (target.tagName != 'A') return;
 
-        obj.path = el.getAttribute('href');
+    event.preventDefault();
 
-        if (localStorage[el.innerHTML]) {
-            alert('The address is: ' + JSON.parse(localStorage[el.innerHTML]).path);
-        } else {
-            localStorage[el.innerHTML] = JSON.stringify(obj);
-            alert('The link was saved');
-        }
+    obj.path = target.getAttribute('href');
+
+    if (localStorage[target.innerText]) {
+        alert('The address is: ' + JSON.parse(localStorage[target.innerText]).path);
+    } else {
+        localStorage[target.innerText] = JSON.stringify(obj);
+        alert('The link was saved');
     }
-});
+};
